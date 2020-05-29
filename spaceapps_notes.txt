@@ -1,0 +1,12 @@
+Topics of Interest:
+    Light the Path
+        Use Earth observations to explore how human activity and regional land-based human movement patterns may have shifted in response to COVID-19.
+
+    Where There's a Link, There's a Way
+        Find innovative ways to present and analyze integrated, real-time information about the environmental factors affecting the spread of COVID-19.
+
+    Purify the Air Supply
+        Use the ISS as inspiration and develop a system to monitor and/or purify indoor air. It is entirely up to you whether the system you design is able to be used on Earth and/or in space.
+
+    The Isolation Solution
+        Develop innovative solutions to combat social isolation.
