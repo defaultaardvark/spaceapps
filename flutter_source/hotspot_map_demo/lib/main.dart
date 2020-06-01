@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:location/location.dart';
+import 'package:provider/provider.dart';
 import 'dart:async';
 
 void main() {
@@ -10,30 +11,30 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'User Location',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+    return StreamProvider<UserLocation>(
+      create: (context) => LocationService().locationStream,
+      child: MaterialApp(
+        title: 'Hotspot Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: Scaffold(
+          body: HomeView(),
+        )
       ),
-      home: MyHomePage(title: 'Hotspot Map Demo'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-  final String title;
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
+class HomeView extends StatelessWidget {
+  const HomeView({Key key}) : super(key: key);
 
-class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Hotspot Map Demo'),
+    var userLocation = Provider.of<UserLocation>(context);
+    return Center(
+      child: Text(
+        'Location: Lat: ${userLocation?.latitude}, Long: ${userLocation?.longitude}',
       ),
     );
   }
